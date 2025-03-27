@@ -1,10 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>꼭 일하고 싶습니다</title>
+ <link rel="stylesheet" href="style.css">
+<link rel="apple-touch-icon" sizes="57x57" href="/etc/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/etc/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/etc/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/etc/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/etc/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/etc/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/etc/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/etc/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/etc/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/etc/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/etc/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/etc/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/etc/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
 </head>
 <body>
-  <h1>Hello, this is my portfolio!</h1>
+
+<header>
+  
+    <div class="logo">
+      <!-- <img src="/etc/logo.png" alt="cf">-->
+    </div>
+  <h2 id="subTitle" >Kecak25'S Portfolio</h2>
+     <nav>
+        <a href="#" id="homeLink"></a>
+        <a href="#" id="aboutLink"></a>
+        <a href="#" id="contactLink"></a>
+        
+    </nav>
+</header>
+
+<main id="content">
+    <h1 id="title"></h1>
+<div class="image-box-container">
+    <div class="image-box image1">
+    <div class="txt">전시 부스 디자인<br>━ <br>Cosmobeauty <br> 2022<br></div>
+</div>
+<div class="image-box image2">
+    <div class="txt">부스 매대 디자인<br>━ <br>Cosmetic <br> 2022<br></div>
+
+</div>
+<div class="image-box image3">
+       <div class="txt">홈페이지 배너<br>━ <br>44U <br> 2022<br></div>
+
+</div>
+<div class="image-box image4">
+    <div class="txt">SNS 디자인<br>━ <br>Social Network Service<br> 2022<br></div>
+</div>
+</div>
+
+</main>
+  
+<!-- 모달 -->
+
+<div class="modal" id="myModal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <div id="modalImage" class="modal-image"></div> 
+<!-- 여기서 클래스가 동적으로 변경됩니다 -->
+    </div>
+</div>
+     <section></section>   
+<footer>
+  
+    <!-- footer-container 클래스를 추가한 큰 div 박스 -->
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-section">
+                <h3>Thanks for stopping by!</h3>
+                <button>Let's Try Again</button>
+                <p>WEB Design | Site Management | SNS Content</p>
+            </div>
+            <div class="footer-section">
+                
+            </div>
+            <div class="footer-section">
+                <img src="/etc/pofile.png" alt="Profile Picture">
+                <p>Tel: 010-4346-9088<br>Email: kecak@naver.com</p>
+            </div>
+        </div>
+    </div>
+
+     <div class="footer-bottom">
+        <!-- 이미지 먼저 나오고 텍스트는 그 아래에 위치 -->
+        <img src="/etc/logo1.png" alt="Footer Image">
+        <div class="footer-bottom-text">
+            <p>&copy; 2025 by KECAK25</p>
+        </div>
+    </div>
+     <div class="social-links">
+        <a href="#"><img src="etc/I.png" alt="Instagram"></a>
+        <a href="#"><img src="etc/F.png" alt="Facebook"></a>
+        <a href="#"><img src="etc/X.png" alt="Twitter"></a>
+        <a href="#"><img src="etc/N.png" alt="LinkedIn"></a>
+    </div>
+</footer>
+<script>
+
+// 페이지 로드 시 기본적으로 홈 페이지 콘텐츠 로드
+document.getElementById("homeLink").addEventListener("click", function() {
+    loadHome();
+});
+
+// About, Contact 페이지 로드 함수
+document.getElementById("aboutLink").addEventListener("click", function() {
+    loadContent('about.html');
+});
+
+document.getElementById("contactLink").addEventListener("click", function() {
+    loadContent('contact.html');
+});
+
+// 홈 페이지 로드
+function loadHome() {
+    document.getElementById("content").innerHTML = `
+        <h1>My stream of consciousness</h1>
+        <div class="image-box-container">
+            <div class="image-box image1">
+                <div class="txt">해외 전시 부스 디자인</div>
+            </div>
+            <div class="image-box image2">
+                <div class="txt">해외 전시 부스 디자인</div>
+            </div>
+            <div class="image-box image3">
+                <div class="txt">해외 전시 부스 디자인</div>
+            </div>
+            <div class="image-box image4">
+                <div class="txt">해외 전시 부스 디자인</div>
+            </div>
+        </div>
+    `;
+}
+
+// 동적 콘텐츠 로드 함수 (about.html, contact.html 등)
+function loadContent(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("content").innerHTML = html;
+        })
+        .catch(err => console.log('Error loading page: ', err));
+}
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 이미지 박스와 모달 요소들
+    const imageBoxes = document.querySelectorAll(".image-box");
+    const modal = document.getElementById("myModal");
+    const modalImage = document.getElementById("modalImage");
+    const closeModal = document.getElementById("closeModal");
+
+    // 화면 크기에 따라 모달 스타일 변경
+    function adjustModalStyle() {
+        const width = window.innerWidth;
+        if (width <= 768) {
+            modal.style.alignItems = "center"; // 수직 중앙 정렬
+            modal.style.justifyContent = "center"; // 수평 중앙 정렬
+            modal.style.padding = "0"; // 모바일에서 여백 제거
+        } else {
+            modal.style.alignItems = "flex-start"; // 데스크톱에서 위쪽 정렬
+            modal.style.justifyContent = "center";
+            modal.style.padding = "20px"; // 여백 추가
+        }
+    }
+
+    // 모달 열기
+    function openModal() {
+        adjustModalStyle(); // 모달 스타일 동적 변경
+        modal.style.display = "flex"; // 모달을 표시
+
+        // 모바일에서는 스크롤 잠금
+        if (window.innerWidth <= 768) {
+            document.body.style.overflow = "hidden";
+        }
+    }
+
+    // 모달 닫기
+    function closeModalFunction() {
+        modal.style.display = "none"; // 모달을 닫기
+        document.body.style.overflow = ""; // 스크롤 잠금 해제
+    }
+
+    // 이미지 박스 클릭 이벤트
+    imageBoxes.forEach((box, index) => {
+        box.addEventListener("click", () => {
+            modalImage.classList.remove("modal-image1", "modal-image2", "modal-image3", "modal-image4"); // 이전 클래스 제거
+            modalImage.classList.add(`modal-image${index + 1}`); // 클릭된 이미지에 맞는 클래스를 추가
+            openModal(); // 모달 열기
+        });
+    });
+
+    // 모달 닫기 이벤트
+    closeModal.addEventListener("click", closeModalFunction);
+
+    // 모달 외부 클릭 시 닫기
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            closeModalFunction(); // 모달 외부 클릭 시 닫기
+        }
+    });
+
+    // 화면 크기 변경 시 스타일 조정
+    window.addEventListener("resize", adjustModalStyle);
+});
+
+
+
+
+
+
+  
+  
+</script>
 </body>
 </html>

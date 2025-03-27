@@ -1,0 +1,424 @@
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+min-height: 100vh; /* 화면 전체 높이 */
+background-color :#717F92;
+        /*  background-image: linear-gradient(-180deg, #21417a 0%, #7189b7 50%, #c1adae 100%, #f9d6a0 100%, #ffffff 100%); */
+      background-size: 100% 80%;
+        }
+
+
+        /* Header */
+        header {
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            color: #fff;
+           position: sticky;
+    top: 0;
+    background-color: #21417a; /* 배경색 지정 */
+    z-index: 1000; /* 다른 콘텐츠 위로 표시 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+        }
+
+      header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header h2 {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* 정확히 가운데로 정렬 */
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+     
+        /* Main Content */
+        main {
+          background-image: url('background-image.jpg');
+          
+          background-size: cover;
+          background-position: center;
+          background-attachment: scroll; 
+          /* 배경을 스크롤에 따라 이동하도록 설정 */
+           padding: 40px 10%; /* 예시로 패딩 추가 */
+          /**/
+           /* background-color: #90A7C4;*/
+            width: 80%;
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 5%;
+            padding-bottom: 0%;
+            text-align: center; /* h1을 가운데 정렬 */
+
+ flex: 1; /* 남는 공간을 메인이 채우도록 설정 */
+          position: relative;
+          z-index:1;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 40px; /* h1 아래에 여백 추가 */
+        }
+
+       
+
+       /* 기본 레이아웃 (데스크톱 환경) */
+.image-box-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr); /* 4개 1단 */
+}
+
+.image-box {
+ position: relative; /* 자식 요소인 .text를 절대 위치로 설정하려면 부모 요소가 relative여야 함 */
+    width: 500px; /* width와 height 설정 */
+    height: 500px; /* height 설정 */
+    overflow: hidden; /* 텍스트가 박스를 벗어나지 않도록 설정 */
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #ddd;
+    cursor: pointer;
+ transition: background-color 0.3s ease; /* 배경색 변화에 부드러운 전환 효과 추가 */
+}
+
+
+/*언더라인*/
+#udl {text-align:center; padding: 2px;}
+
+/* 텍스트 스타일 */
+.image-box .txt {
+      position: absolute; /* 절대 위치로 중앙 정렬 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 중앙 정렬을 위해 사용 */
+    color: #fff; /* 텍스트 색상 */
+    font-size: 30px;
+    opacity: 0; /* 기본적으로 텍스트는 보이지 않도록 설정 */
+    transition: opacity 0.3s; /* 마우스를 올릴 때 부드럽게 나타나도록 설정 */
+}
+/* 이미지 박스에 마우스를 올렸을 때 */
+.image-box:hover {
+ background-blend-mode: darken; /* 이미지와 배경 색을 합침 */
+ background-color: rgba(0, 0, 0, 0.8); /* 80% 불투명도 검은색 배경 */
+}
+
+/* 이미지 박스를 호버했을 때 텍스트 표시 */
+.image-box:hover .txt {
+    opacity: 1; /* 텍스트가 보이도록 설정 */
+}
+
+/* .image1 */
+.image1 {
+    background-image: url("img1/a1.png");
+    background-size: cover;
+    background-position: center;
+   
+}
+
+.image2 {
+     background-image: url("img2/a2.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image3 {
+     background-image: url("img3/a3.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.image4 {
+     background-image: url("img4/a4.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* 태블릿 환경 (2개 2단) */
+@media (max-width: 1024px) {
+    .image-box-container {
+        grid-template-columns: repeat(2, 1fr); /* 2개 2단 */
+    }
+}
+
+/* 모바일 환경 (1개씩 4단) */
+@media (max-width: 768px) {
+    .image-box-container {
+        grid-template-columns: 1fr; /* 1개씩 4단 */
+    }
+}
+
+/* 모달 기본 스타일 */
+.modal {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    z-index: 1000; /* 모달의 z-index가 충분히 높은지 확인 */
+}
+
+
+/* 모달 이미지 스타일 */
+
+.modal-image {
+    width: 100%; /* 너비 80% */
+    height: 100%; /* 높이 80% */
+    background-size: contain; /* 배경 이미지를 박스 크기에 맞게 확장 */
+    background-position: center; /* 배경 이미지 위치 중앙 */
+    background-repeat: no-repeat; /* 반복하지 않도록 설정 */
+    border-radius: 8px; /* 둥근 모서리 */
+    display: block; /* 블록 요소로 설정 */
+    visibility: visible; /* 보이도록 설정 */
+    opacity: 1; /* 투명도 1 (불투명) */
+}
+
+/* 모달 이미지 박스 */
+.modal-content {
+    width: 90%;
+    height: 90%;
+    
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* 상대 위치 설정 */
+}
+
+
+
+
+
+
+/* 클로즈 버튼 */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: red;
+    font-size: 50px;
+    cursor: pointer;
+    z-index: 1100; /* 클로즈 버튼을 이미지보다 위로 올리기 */
+}
+
+
+
+
+
+
+/* 박스 클릭 시 모달에서 표시될 이미지 설정 */
+.modal-image1 {
+    background-image: url('img1/ac1.png');
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+ background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+}
+
+.modal-image2 {
+     background-image: url('img2/ac2.png');
+  background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+ background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+}
+
+.modal-image3 {
+    background-image: url('img3/ac3.png');
+   background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+ background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+}
+
+.modal-image4 {
+     background-image: url('img4/ac4.png');
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+ background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+}
+
+/* 모바일 환경에서 모달 전체화면 */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+
+
+section {
+  
+   position: absoulte;
+    top: 1000px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: #e3c7af;
+     clip-path: ellipse(75% 45% at 50% 100%); /* 푸터 상단에 완만한 곡선 */
+    text-align: center;
+    color: #FFB48C;
+   
+}
+
+        /* Footer */
+
+
+
+        footer {
+            background-color: #e3c7af;
+            width:100%;
+	    height:100%;
+            margin: 0 auto;
+            padding-top: 40px;
+            padding-bottom:40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+           
+          
+          
+        }
+
+
+
+      .footer-container {
+            width: 80%;
+            padding-top: 40px;
+            padding-bottom:40px;
+            background-color: #f3f2dc; /* 배경색 (원하는 색상으로 변경 가능) */
+        }
+
+
+        .footer-top {
+            display: flex;
+          
+            justify-content: space-between;
+            width: 90%;
+            margin: 0 auto;
+            
+        }
+
+        .footer-section {
+            width: 30%;
+           
+        }
+
+  /* 첫 번째 섹션 왼쪽 정렬 */
+        .footer-section:first-child {
+            text-align: left;
+          
+ display: flex; /* 두 번째 섹션 내부를 flex 컨테이너로 */
+    flex-direction: column; /* 기본적으로 수직 정렬 */
+    justify-content: space-between; /* 자식 요소들 간 공간 분배 */
+    align-items: center; /* 수평 중앙 정렬 */
+    height: 100%; /* 부모의 높이를 꽉 채우도록 설정 */
+          margin: 0; /* 여백 초기화 */
+    align-self: flex-start; /* 시작 부분으로 정렬 */
+        }
+
+        /* 두 번째 섹션 가운데 정렬 */
+        .footer-section:nth-child(2) {
+            text-align: center;
+         
+        }
+
+        /* 세 번째 섹션 오른쪽 정렬 */
+  .footer-section:nth-child(3) {
+    text-align: right; /* 텍스트 오른쪽 정렬 */
+    display: flex; /* Flexbox 사용 */
+    flex-direction: column; /* 수직 정렬 */
+    align-items: flex-end; /* 수평 오른쪽 정렬 */
+    gap: 10px; /* 이미지와 텍스트 간격 */
+}
+
+.footer-section:nth-child(3) img {
+    max-width: 100%; /* 이미지 크기 조정 */
+    height: auto; /* 비율 유지 */
+}
+
+.footer-section:nth-child(3) p {
+    margin: 0; /* 여백 제거 */
+}
+        }
+        .footer-section img {
+            max-width: 100%;
+            height: auto;
+          
+          
+          
+          
+          
+          
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .social-links {
+            position: fixed;
+	    
+            right: 8%;
+            bottom:15%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+	.social-links img{width:16px;
+	    height:16px;}
+        .social-links a {
+            color: #666;
+            font-size: 20px;
+            text-decoration: none;
+        }
+    </style>
